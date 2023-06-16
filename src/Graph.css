@@ -1,0 +1,152 @@
+.mst{
+  border: 5px solid;
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%; */
+  /* margin-top: 5%; */
+  margin-left: 25%;
+  /* transform: translate(-50%, -50%); */
+  padding: 10px;
+  width: 30%;
+  /* height: 60%; */
+
+}
+
+.nodes{
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  /* width: 100%;
+  height: 100%; */
+  background-color: lightblue;
+  /* row-gap: 10px; */
+  /* position: relative; */
+}
+
+.edge-1{
+  width: 0.5px;
+  height: 150px;
+  border-left: 2px solid black;
+  transform: rotate(30deg);
+  position: relative;
+  top: -5%;
+  left: 100%;
+
+}
+.edge-2
+{
+  width: 0.5px;
+  height: 120px;
+  border-left: 2px solid black;
+  position: relative;
+  top:5%;
+  left:34%;
+}
+
+.edge-3
+{
+  width: 0.5px;
+  height: 150px;
+  border-left: 2px solid black;
+  transform: rotate(-30deg);
+  position: relative;
+  /* padding: 0; */
+  top: -5%;
+  right: 30%;
+}
+
+.edge-9{
+  width: 0.5px;
+  height: 120px;
+  border-left: 2px solid black;
+  position: relative;
+  top:5%;
+  left:32%;
+}
+.edge-8{
+  width: 0.5px;
+  height: 150px;
+  border-left: 2px solid black;
+  transform: rotate(30deg);
+  position: relative;
+  top: -5%;
+  left: -20%;
+}
+.edge-7{
+  width: 0.5px;
+  height: 150px;
+  border-left: 2px solid black;
+  transform: rotate(-30deg);
+  position: relative;
+  /* padding: 0; */
+  top: -5%;
+  right: -90%;
+}
+
+.edge-4,.edge-5,.edge-6{
+  width: 0.5px;
+  height: 60px;
+  border-left: 2px solid black;
+  position: relative;
+}
+.edge-4{
+  left: 40%;
+}
+
+.edge-5{
+  left: 33%;
+}
+
+.edge-6{
+  left: 36%;
+}
+.arrow-row-1 div,.arrow-row-2 div,.arrow-row-3 div{
+  position: relative;
+}
+
+
+.arrow-row-1,.arrow-row-2,.arrow-row-3{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+}
+
+.node-s,.node-a,.node-b,.node-c,.node-d,.node-e,.node-f,.node-g
+{
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  /* position: absolute; */
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+  margin-left: 11.2%;
+  position: relative;
+}
+
+.node-s{
+  /* top:5%; */
+  left:0%;
+  position: relative;
+}
+
+.row-1{
+  padding-left: 30%;
+  position: relative;
+  display: grid;
+}
+.row-2{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  
+}
+.row-3{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+}
+.row-4{
+  padding-left: 30%;
+}
