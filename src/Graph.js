@@ -1,16 +1,16 @@
 import "./Graph.css"
-const Graph=()=>
+import React, { createContext } from 'react';
+const MyContext = createContext();
+
+const Graph=(props)=>
 {
   return(
     <>
+    {/* <MyContext.Provider value={divList}> */}
     <div className="mst">
       <div className="nodes">
         <div className="row-1">
-          <div className="node-s">
-            <p>
-              S
-            </p>
-          </div>
+          {props.divList[0]}
         </div>
 
         <div className="arrow-row-1">
@@ -35,24 +35,9 @@ const Graph=()=>
 
 
         <div className="row-2">
-              
-          <div className="node-a">
-            <p>
-              A
-            </p>
-          </div>
-
-          <div className="node-b">
-            <p>
-              B
-            </p>
-          </div>
-
-          <div className="node-c">
-            <p>
-              C
-            </p>
-          </div>
+              {props.divList[1]}
+              {props.divList[2]}
+              {props.divList[3]}
         </div>
 
         <div className="arrow-row-2">
@@ -75,23 +60,9 @@ const Graph=()=>
               </div>
         </div>
       <div className="row-3">
-        <div className="node-d">
-            <p>
-              D
-            </p>
-          </div>
-
-          <div className="node-e">
-            <p>
-              E
-            </p>
-          </div>
-
-          <div className="node-f">
-            <p>
-              F
-            </p>
-          </div>
+              {props.divList[4]}
+              {props.divList[5]}
+              {props.divList[6]}
       </div>
       <div className="arrow-row-3">
           <div>
@@ -113,17 +84,16 @@ const Graph=()=>
                   </div>
       </div>
       <div className="row-4">
-        <div className="node-g">
-            <p>
-              G
-            </p>
-          </div>
+      {props.divList[7]}
+
       </div>
        
         
       </div>
     </div>
+    {/* </MyContext.Provider> */}
+    
     </>
   )
 }
-export default Graph;
+export {Graph,MyContext};

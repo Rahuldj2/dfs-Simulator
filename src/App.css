@@ -1,0 +1,8 @@
+.App{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.app-1{
+    background-color: yellow;
+}

@@ -7,7 +7,8 @@
   margin-left: 25%;
   /* transform: translate(-50%, -50%); */
   padding: 10px;
-  width: 30%;
+  width: 90%;
+  position: relative;
   /* height: 60%; */
 
 }
@@ -19,7 +20,7 @@
   height: 100%; */
   background-color: lightblue;
   /* row-gap: 10px; */
-  /* position: relative; */
+  position: relative;
 }
 
 .edge-1{
@@ -149,4 +150,11 @@
 }
 .row-4{
   padding-left: 30%;
+}
+
+@media screen and (max-width:1000px) {
+  .node-s,.node-a,.node-b,.node-c,.node-d,.node-e,.node-f,.node-g{
+    width: 60px;
+    height:60px;
+  }
 }
