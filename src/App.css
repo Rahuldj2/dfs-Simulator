@@ -1,8 +1,22 @@
 .App{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: black;
 }
 
 .app-1{
-    background-color: yellow;
+    background-color: black;
+}
+
+.run-btn{
+    margin-top: 40px;
+    margin-left:40px;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.run-btn:hover{
+    background-color: gray;
 }

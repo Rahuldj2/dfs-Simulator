@@ -5,6 +5,8 @@ import {useState} from "react";
 
 
 function App() {
+
+  
   let divList=[
     <div className="node-s">
       <p>
@@ -54,49 +56,60 @@ function App() {
                   </div>
   
     ]
-  function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
 
-  // const[vertex,change]=useState(0);
+    const[divv,change]=useState(divList)
   const graph=[[1,2,3],[0,4],[0,5],[0,6],[1,7],[2,7],[3,7],[4,5,6]]
   const visited=[false,false,false,false,false,false,false,false]
-  const dfs=(graph,curVertex,visited)=>
-  {
-    // console.log(graph);
-    console.log(curVertex)
-    sleep(1000);
+
+  const changeState=(curVertex)=>{
+    const updatedDivList = divv.map((element, index) => {
+      if (index === curVertex) {
+
+        return <div className="node-a"style={{backgroundColor:'yellow',opacity:'1px'}} key={index}><p>{curVertex}</p></div>;
+      } else {
+        return element;
+      }
+    });
+    change(updatedDivList);
+  }
+
+
+  const sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
+
+  const clear=()=>{
     
-    visited[curVertex]=true;
-    let adjList=graph[curVertex];
-    // console.log(adjList);
-    // console.log("check")
-    for (let i=0;i<adjList.length;i++)
-    {
-      // console.log(neighbour)
-      let neighbour=adjList[i];
-      if (visited[neighbour]===false)
-      {
-        // console.log("hiiii")
-        dfs(graph,neighbour,visited);
+  }
+  
+  const dfs = async (graph, curVertex, visited) => {
+    visited[curVertex] = true;
+    changeState(curVertex); // Update the UI for the current node
+  
+    await sleep(1000); // Introduce a delay of 1000 milliseconds (1 second)
+  
+    let adjList = graph[curVertex];
+    for (let i = 0; i < adjList.length; i++) {
+      let neighbour = adjList[i];
+      if (!visited[neighbour]) {
+        await dfs(graph, neighbour, visited);
       }
     }
-  }
+  };
+  
+
   return (
     <>
   
     <div className="App">
       <div className="app-1">
-        <button onClick={()=>{
+        <button className="run-btn" onClick={()=>{
           dfs(graph,0,visited);
-        }}>Run dfs</button>
+          changeState(9);
+        }}>Run DFS</button>
       </div>
       
-      <Graph divList={divList}/>
+      <Graph divList={divv}/>
     </div>
     </>
   );
