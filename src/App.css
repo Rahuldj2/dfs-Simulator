@@ -5,7 +5,7 @@
 }
 
 .app-1{
-    background-color: black;
+    background-color: red;
 }
 
 .run-btn{
@@ -19,4 +19,26 @@
 
 .run-btn:hover{
     background-color: gray;
+}
+
+.code{
+    color: white;
+    background-color: blue;
+}
+
+.stack{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: black;
+    /* row-gap: 2px; */
+    width: 10%;
+    height: 50%;
+    margin-top: 20%;
+    margin-left: 20%;
+}
+.stack-node{
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+
 }
