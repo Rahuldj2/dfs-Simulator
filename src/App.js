@@ -4,6 +4,12 @@ import './App.css'
 import {useState} from "react";
 import Code from './Code.js'
 
+/*
+1.Implement stack behaviour
+2.improve graph ui
+3.responsiveness in big screens
+4.disable dfs button click-done
+*/
 
 function App() {
   let letters=['s','a','b','c','d','e','f','g']
@@ -26,7 +32,18 @@ function App() {
         return element;
       }
     });
+
+    const updatedStack = stack.map((element, index) => {
+      if (index === curVertex) {
+
+        return <div className={`stack-node-${letters[curVertex]}`}style={{backgroundColor:'yellow',opacity:'1px'}} key={index}><p>{curVertex}</p></div>;
+      } else {
+        return element;
+      }
+    });
+
     change(updatedDivList);
+    operate(updatedStack);
   }
 
 
@@ -42,6 +59,11 @@ function App() {
     });
     change(updatedDivList);
   }
+
+  const enable=async()=>
+  {
+    ChangeVal(false);
+  }
   const dfs = async (graph, curVertex, visited) => {
     visited[curVertex] = true;
     changeState(curVertex); // Update the UI for the current node
@@ -55,26 +77,41 @@ function App() {
         await dfs(graph, neighbour, visited);
       }
     }
-    await clear()
   };
   
 let list2=[]
 for (let j=0;j<8;j++)
 {
-  list2[j]= <div className='stack-node'></div>
+  list2[j]= <div className={`stack-node-${letters[j]}`}></div>
 }
 
 const[stack,operate]=useState(list2);
 
 // const pushPop()
+  let isRunning=false;
+
+  const update= async(event)=>
+  {
+    event.currentTarget.disabled=false;
+  }
+  const handleClick = async (event) => {
+    // event.currentTarget.disabled = true;
+    ChangeVal(true);
+    await dfs(graph,0,visited);
+    await clear();
+    // await sleep(2000);
+    await enable();
+    // await update(event);
+    console.log('button clicked');
+  };
+
+  const[buttonState,ChangeVal]=useState(false);
   return (
     <>
   
     <div className="App">
       <div className="app-1">
-        <button className="run-btn" onClick={async ()=>{
-          dfs(graph,0,visited);
-        }}>Run DFS</button>
+        <button className="run-btn"  disabled={buttonState} onClick={handleClick}>Run DFS</button>
         <button className='run-btn'>Graph </button>
         <button className='run-btn'>Tree</button>
         <div className='stack'>
