@@ -58,6 +58,7 @@ function App() {
         return <div className="node-a"style={{backgroundColor:'white'}} key={index}><p>{index}</p></div>;
     });
     change(updatedDivList);
+    operate(list2)
   }
 
   const enable=async()=>
@@ -80,9 +81,18 @@ function App() {
   };
   
 let list2=[]
+
+
 for (let j=0;j<8;j++)
 {
-  list2[j]= <div className={`stack-node-${letters[j]}`}></div>
+  let adj=graph[j].map((x)=>{
+    let ts=x.toString()
+    return ts+=','
+  })
+  list2[j]= <div className={`stack-node-${letters[j]}`}>
+    <div className={`array-index-${j}`}>{j}</div>
+    <div>{adj}</div>
+  </div>
 }
 
 const[stack,operate]=useState(list2);
@@ -106,6 +116,10 @@ const[stack,operate]=useState(list2);
   };
 
   const[buttonState,ChangeVal]=useState(false);
+
+  const sendAlert=()=>{
+    alert("Tree Simulator is still under development!");
+  }
   return (
     <>
   
@@ -113,8 +127,13 @@ const[stack,operate]=useState(list2);
       <div className="app-1">
         <button className="run-btn"  disabled={buttonState} onClick={handleClick}>Run DFS</button>
         <button className='run-btn'>Graph </button>
-        <button className='run-btn'>Tree</button>
+        <button className='run-btn' onClick={sendAlert}>Tree</button>
+
+        <h2 style={{color:'white',textAlign:'center',marginBottom:'none'}}>
+            Adjacency list representation of Graph
+          </h2>
         <div className='stack'>
+          
           {stack}
         </div>
       </div>
